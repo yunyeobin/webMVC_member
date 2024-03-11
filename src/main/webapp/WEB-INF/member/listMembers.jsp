@@ -42,8 +42,10 @@
             <td>${dto.mname}</td>
             <td>${dto.mmail}</td>
             <td>${dto.joinDate}</td>
+<%--            수정버튼 누르면 ModifyMemberController로--%>
             <td><a href="/member/modMember.do?mid=${dto.mid}">수정</a></td>
             <td>
+<%--                a태그로 링크를 연결하면 Get요청으로 가게 되어서 Post요청을 위해 form을 만들어서 method = "post" 지정하였다--%>
                 <form action="/member/delMember.do?mid=${dto.mid}" method="post">
                     <button type="submit">삭제</button>
                 </form>

@@ -63,21 +63,26 @@
 <body>
 <div class="container">
     <h1>회원 가입</h1>
+<%--    해당 폼을 전송하면 RegisterMemberController에서 Post요청을 받는다--%>
     <form action="/registerMembers.do" method="post">
         <div class="label-input">
             <label for="mid">아이디</label>
+<%--            mid에 아이디 입력--%>
             <input type="text" id="mid" name="mid">
         </div>
         <div class="label-input">
             <label for="mpw">비밀번호</label>
+<%--            mpw에 비밀번호 입력--%>
             <input type="text" id="mpw" name="mpw">
         </div>
         <div class="label-input">
             <label for="mname">이름</label>
+<%--            mname에 이름입력--%>
             <input type="text" id="mname" name="mname">
         </div>
         <div class="label-input">
             <label for="mmail">이메일</label>
+<%--            mmail에 메일 입력--%>
             <input type="text" id="mmail" name="mmail">
         </div>
         <div class="buttons">

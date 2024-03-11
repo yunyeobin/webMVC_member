@@ -11,11 +11,14 @@
     <title>Modify Member Page</title>
 </head>
 <body>
+<%--해당 폼을 제출하면 ModifyMemberController에 Post요청 발사--%>
 <form action="/member/modMember.do" method="post">
     <div>
+<%--        텍스트 박스 안에 mid를 보여준다 읽기 전용--%>
         <input type="text" name="mid" value="${dto.mid}" readonly>
     </div>
     <div>
+<%--        텍스트 박스 안에 mpw를 보여준다 수정가능--%>
         <input type="text" name="mpw" value="${dto.mpw}">
     </div>
     <div>

@@ -19,17 +19,18 @@ import java.time.format.DateTimeFormatter;
 public class RegisterMemberController extends HttpServlet {
 
     private MemberService memberService = MemberService.INSTANCE;
-    private final DateTimeFormatter DATEFORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("회원가입 doGet...");
+        //registerMember.jsp로 요청 전달
         request.getRequestDispatcher("/WEB-INF/member/registerMember.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("회원가입 doPost...");
+        //빌더를 이용하여 DTO객체에 입력받은 파라미터들을 담는다.
         MemberDTO memberDTO = MemberDTO.builder()
                 .mid(request.getParameter("mid"))
                 .mpw(request.getParameter("mpw"))
@@ -38,9 +39,11 @@ public class RegisterMemberController extends HttpServlet {
                 .build();
         try {
             memberService.register(memberDTO);
+            //register메소드를 이용해서 DB에 넣어줄 수 있다.(Insert)
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new ServletException("register error");
         }
+        //하고나면 회원목록 화면으로 다시 간다.
         response.sendRedirect("/member/mem.do");
     }
 }

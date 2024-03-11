@@ -55,11 +55,11 @@ public class MemberDAO {
         String sql = "select * from mvc_member where mid = ?";
 
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
-        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        @Cleanup PreparedStatement pstmt = connection.prepareStatement(sql);
 
-        preparedStatement.setString(1, mid);
+        pstmt.setString(1, mid);
 
-        @Cleanup ResultSet resultSet = preparedStatement.executeQuery();
+        @Cleanup ResultSet resultSet = pstmt.executeQuery();
 
         resultSet.next();
 
@@ -117,6 +117,7 @@ public class MemberDAO {
                 .mpw(rs.getString(2))
                 .mname(rs.getString(3))
                 .mmail(rs.getString(4))
+//                .joinDate(rs.getDate(5).toLocalDate())
                 .build();
 
         return memberVO;

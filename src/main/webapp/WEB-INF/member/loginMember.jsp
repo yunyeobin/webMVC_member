@@ -11,6 +11,7 @@
     <title>Login Page</title>
 </head>
 <body>
+<%--해당양식을 제출하면 LoginCintroller에 post요청--%>
 <form action="/login" method="post">
     <label>아이디</label>
     <input type="text" name="mid">
@@ -18,6 +19,8 @@
     <input type="text" name="mpw">
     <button type="submit">로그인하기</button>
 </form>
+
+<%--해당 링크를 클릭하면 RegisterMemberController에서 Get요청--%>
 <a href="/registerMembers.do">회원가입하기</a>
 
 </body>
